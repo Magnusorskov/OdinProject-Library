@@ -1,7 +1,7 @@
 :root {
-    --bg-dark: oklch(0.92 0.025 264);
-    --bg: oklch(0.96 0.025 264);
-    --bg-light: oklch(1 0.025 264);
+    --bg-dark: oklch(0.85 0.025 264);
+    --bg: oklch(0.90 0.025 264);
+    --bg-light: oklch(0.95 0.025 264);
     --text: oklch(0.15 0.05 264);
     --text-muted: oklch(0.4 0.05 264);
     --highlight: oklch(1 0.05 264);
@@ -48,6 +48,49 @@ main {
 }
 .book-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 0.3fr));
     gap: 2rem;
+    padding: 2rem;
+    justify-content: center;
 }
+
+.card {
+    border: 3px solid var(--border);
+    background-color: var(--bg-light);
+    /*text-align: center;*/
+    min-height: 200px;
+    padding: 1rem;
+    border-radius: 10px;
+    border-left:  8px solid var(--border);
+    border-right:  8px solid var(--border);
+}
+
+dl {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--text-muted);
+}
+
+.dl-row {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    column-gap: 1rem;
+
+
+    padding-top: 1rem;
+}
+
+.dl-row+.dl-row {
+    border-top: 1px solid var(--border-muted);
+}
+
+dt::after {
+    content: ":";
+}
+
+h1, h2, dt {
+    color: var(--text);
+    font-weight: bold;
+}
+
