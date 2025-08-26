@@ -1,5 +1,3 @@
-const library = [];
-
 function Book(title, author, pages, hasRead) {
     if (!new.target) {
         throw Error("You must use the 'new' operator to call the constructor");
@@ -19,9 +17,6 @@ Book.prototype.info = function () {
 
 
 
-function addBookToLibrary(title, author, pages, hasRead) {
-    library.push(new Book(title, author, pages, hasRead));
-}
 
 
 

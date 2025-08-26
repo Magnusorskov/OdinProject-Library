@@ -8,38 +8,32 @@
     <title>LibraryApp</title>
     <link rel="stylesheet" href="style.css">
     <script src="Book.js" defer></script>
+    <script src="Main.js" defer></script>
 </head>
 <body>
 <header>
     <h1>Your Library</h1>
+    <button>Test</button>
 </header>
 <main>
-    <section class="book-section">
-        <div class="card">
-            <h2>Book name</h2>
-            <dl>
-                <div class="dl-row">
-                    <dt>Author</dt>
-                    <dd>Magnus Dammeyer</dd>
-                </div>
-
-                <div class="dl-row">
-                    <dt>Pages count</dt>
-                    <dd>600</dd>
-                </div>
-
-                <div class="dl-row">
-                    <dt>Reading status</dt>
-                    <dd>Has read</dd>
-                </div>
-
-                <div class="dl-row">
-                    <dt>ID</dt>
-                    <dd>22140d91-be6c-46c0-92a0-5816d3bf4d74</dd>
-                </div>
-            </dl>
-        </div>
-    </section>
+    <section class="book-section"></section>
 </main>
+<footer>
+    <dialog>
+        <form method="dialog" class="add-book-dialog" novalidate>
+            <div class="form-content">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="The Hobbit" required>
+            </div>
+            <div class="form-buttons">
+                <button class="close">Close</button>
+            </div>
+        </form>
+    </dialog>
+    <button class="add-book">Add Book</button>
+
+    <button class="suggest-book">Suggest Books</button>
+    <button class="remove-all">Remove All</button>
+</footer>
 </body>
 </html>
