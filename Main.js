@@ -81,3 +81,4 @@ closeButton.addEventListener("click", () => {
 
 addBookToLibrary("Test", "Magnus Dammeyer", 360, true);
 updateLibrary();
+

@@ -19,9 +19,11 @@
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.25);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+
+    --shadow-lg-top: 0 -10px 15px -3px rgba(0, 0, 0, 0.25);
 }
 
-* {
+*:not(dialog) {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -29,9 +31,11 @@
 
 body {
     display: grid;
-    grid-template-rows: 1fr 5fr 1fr;
-    height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+
 }
+
 header {
     display: flex;
     justify-content: center;
@@ -39,21 +43,23 @@ header {
     background-color: var(--bg);
     padding: 2rem;
     box-shadow: var(--shadow-lg);
-    position: relative;
     z-index: 1;
+    position: sticky;
+    top: 0;
 }
 
 main {
     background-color: var(--bg-dark);
 }
+
 .book-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(22rem, 0.3fr));
     gap: 2rem;
     padding: 2rem;
     justify-content: center;
-    max-height: 80vh;
     overflow: auto;
+
 }
 
 .card {
@@ -63,8 +69,10 @@ main {
     min-height: 200px;
     padding: 1rem;
     border-radius: 10px;
-    border-left:  8px solid var(--border);
-    border-right:  8px solid var(--border);
+    border-left: 8px solid var(--border);
+    border-right: 8px solid var(--border);
+    box-shadow: var(--shadow-md);
+
 }
 
 dl {
@@ -83,7 +91,7 @@ dl {
     padding-top: 1rem;
 }
 
-.dl-row+.dl-row {
+.dl-row + .dl-row {
     border-top: 1px solid var(--border-muted);
 }
 
@@ -102,4 +110,29 @@ footer {
     align-items: center;
     background-color: var(--bg);
     padding: 2rem;
+    position: sticky;
+    bottom: 0;
+    box-shadow: var(--shadow-lg-top);
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+button {
+    padding: 0.6rem 1.8rem;
+    border-radius: 40px;
+    font-size: 1rem;
+    border: none;
+    box-shadow: var(--shadow-md);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button .add-book {
+    background-color: oklch(0.5 0.05 160);
 }
