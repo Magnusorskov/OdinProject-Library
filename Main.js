@@ -1,4 +1,4 @@
-const library = [];
+let library = [];
 
 function addBookToLibrary(title, author, pages, hasRead) {
     library.push(new Book(title, author, pages, hasRead));
@@ -15,6 +15,7 @@ function updateLibrary() {
 function createHtml(book) {
     const newDiv = document.createElement("div");
     newDiv.classList.add("card")
+    newDiv.setAttribute("data-book-id", book.id);
 
     const bookName = document.createElement("h2");
     bookName.textContent = book.title;
@@ -22,7 +23,6 @@ function createHtml(book) {
 
     const newDl = document.createElement("dl");
 
-    const dlRowArray = [];
     for (let i = 0; i < 4; i++) {
         const rowDiv = document.createElement("div");
         rowDiv.classList.add("dl-row");
@@ -51,21 +51,34 @@ function createHtml(book) {
 
         rowDiv.appendChild(newDt);
         rowDiv.appendChild(newDd);
-        dlRowArray.push(rowDiv);
-    }
+        newDl.appendChild(rowDiv);
 
-    for (const bookDlRows of dlRowArray) {
-        newDl.appendChild(bookDlRows);
     }
     newDiv.appendChild(newDl);
-    return newDiv
+
+    const buttonRow = document.createElement("div");
+    buttonRow.classList.add("button-row");
+    const readBtn = document.createElement("button");
+    readBtn.textContent = "Read toggle"
+    readBtn.classList.add("read-button");
+    const removeBookBtn = document.createElement("button");
+    removeBookBtn.textContent = "Remove book";
+    removeBookBtn.classList.add("remove-book");
+    buttonRow.appendChild(readBtn);
+    buttonRow.appendChild(removeBookBtn);
+
+    newDiv.appendChild(buttonRow);
+
+
+    return newDiv;
 }
 
-
+// TEST -----------------------
 document.querySelector("button").addEventListener("click", () => {
     addBookToLibrary("Test", "Magnus Dammeyer", 360, true);
     updateLibrary();
 })
+// ----------------------
 
 const addButton = document.querySelector(".add-book");
 const closeButton = document.querySelector("dialog button")
@@ -81,4 +94,14 @@ closeButton.addEventListener("click", () => {
 
 addBookToLibrary("Test", "Magnus Dammeyer", 360, true);
 updateLibrary();
+
+const removeAllBtn = document.querySelector(".remove-all")
+
+removeAllBtn.addEventListener("click", () => {
+    let books = document.querySelectorAll(".card");
+    for (const book of books) {
+        book.remove()
+    }
+    library = [];
+})
 

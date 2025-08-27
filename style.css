@@ -1,7 +1,7 @@
 :root {
-    --bg-dark: oklch(0.85 0.025 264);
-    --bg: oklch(0.90 0.025 264);
-    --bg-light: oklch(0.95 0.025 264);
+    --bg-dark: oklch(0.92 0.025 264);
+    --bg: oklch(0.96 0.025 264);
+    --bg-light: oklch(1 0.025 264);
     --text: oklch(0.15 0.05 264);
     --text-muted: oklch(0.4 0.05 264);
     --highlight: oklch(1 0.05 264);
@@ -21,6 +21,9 @@
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 
     --shadow-lg-top: 0 -10px 15px -3px rgba(0, 0, 0, 0.25);
+
+    color: var(--text-muted);
+
 }
 
 *:not(dialog) {
@@ -33,6 +36,7 @@ body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
+
 
 }
 
@@ -78,8 +82,7 @@ main {
 dl {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    color: var(--text-muted);
+
 }
 
 .dl-row {
@@ -88,11 +91,11 @@ dl {
     column-gap: 1rem;
 
 
-    padding-top: 1rem;
+    padding: 2rem 0;
 }
 
-.dl-row + .dl-row {
-    border-top: 1px solid var(--border-muted);
+.dl-row {
+    border-bottom: 1px solid var(--border-muted);
 }
 
 dt::after {
@@ -127,12 +130,32 @@ button {
     font-size: 1rem;
     border: none;
     box-shadow: var(--shadow-md);
+    color: var(--bg-light);
 }
-
 button:hover {
     cursor: pointer;
+
 }
 
-button .add-book {
-    background-color: oklch(0.5 0.05 160);
+
+button.add-book,
+button.read-button {
+    background-color: var(--success);
 }
+
+button.suggest-book{
+    background-color: var(--warning);
+}
+
+button.remove-all,
+button.close,
+button.remove-book  {
+    background-color: var(--danger);
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+}
+
