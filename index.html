@@ -13,20 +13,31 @@
 <body>
 <header>
     <h1>Your Library</h1>
-    <button>Test</button>
 </header>
 <main>
     <section class="book-section">
+
     </section>
 </main>
 <footer>
     <dialog>
         <form method="dialog" class="add-book-dialog" novalidate>
             <div class="form-content">
-                <label for="title">Title</label>
-                <input type="text" id="title" name="title" placeholder="The Hobbit" required>
+                <div class="input-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" placeholder="The Hobbit" required></div>
+                <div class="input-group">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author" placeholder="J.R.R. Tolkien" required></div>
+                <div class="input-group">
+                    <label for="pages">Pages</label>
+                    <input type="number" id="pages" name="pages" placeholder="36" required></div>
+                <div class="input-group">
+                    <label for="hasRead">Has read</label>
+                    <input type="checkbox" id="hasRead" name="hasRead"></div>
             </div>
             <div class="form-buttons">
+                <button class="add">Add</button>
                 <button class="close">Close</button>
             </div>
         </form>
