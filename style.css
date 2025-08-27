@@ -36,8 +36,6 @@ body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
-
-
 }
 
 header {
@@ -69,7 +67,6 @@ main {
 .card {
     border: 3px solid var(--border);
     background-color: var(--bg-light);
-    /*text-align: center;*/
     min-height: 200px;
     padding: 1rem;
     border-radius: 10px;
