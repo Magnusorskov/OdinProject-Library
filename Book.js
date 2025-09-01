@@ -1,19 +1,25 @@
-function Book(title, author, pages, hasRead) {
-    if (!new.target) {
-        throw Error("You must use the 'new' operator to call the constructor");
+class Book {
+    title;
+    author;
+    pages;
+    hasRead;
+    id;
+
+    constructor(title, author, pages, hasRead) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.hasRead = hasRead ? "has read" : "has not read yet"
+        this.id = crypto.randomUUID();
     }
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.hasRead = hasRead ? "has read" : "has not read yet"
-    this.id = crypto.randomUUID();
 
+
+    info() {
+        console.log(`${this.title} by ${this.author}, ${this.pages} pages, ${this.hasRead}`);
+    }
 
 }
 
-Book.prototype.info = function () {
-    console.log(`${this.title} by ${this.author}, ${this.pages} pages, ${this.hasRead}`);
-}
 
 
 
